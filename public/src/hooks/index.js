@@ -14,11 +14,18 @@ function Main(type, close) {
 
   useEffect(() => {
     if (type === 1) {
+      let protocol = "ws://";
+      // console.log(window.location.protocol);
+      if (window.location.protocol === "https:") {
+        // page is secure
+        protocol = "wss://";
+      }
+
       let url = window.location.host;
       if (!process.env.NODE_ENV || process.env.NODE_ENV === "development")
         url = "localhost:8080";
 
-      setSocket(new Socket({ url: "ws://" + url }));
+      setSocket(new Socket({ url: protocol + url }));
 
       console.log("start ...");
     } else if (type === 0) {
