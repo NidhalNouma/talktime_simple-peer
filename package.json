@@ -13,10 +13,7 @@
     "ws": "^3.0.0"
   },
   "devDependencies": {
-    "browserify": "^14.0.0",
-    "nodemon": "^2.0.12",
-    "standard": "^10.0.2",
-    "watchify": "^4.0.0"
+    "nodemon": "^2.0.12"
   },
   "keywords": [
     "p2p",
@@ -29,6 +26,8 @@
   "scripts": {
     "build": "cd public & npm run build",
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "gdeploy": "gcloud run deploy --image gcr.io/talktime-57dc9/talktime_simplepeer",
+    "gbuild": "gcloud builds submit --tag gcr.io/talktime-57dc9/talktime_simplepeer"
   }
 }
